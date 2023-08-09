@@ -22,7 +22,8 @@
     </div>
 
     <div class="d-grid">
-      <button class="btn btn-info">New course</button>
+      <button *ngIf="editable" (click)="updateCourse()" class="btn btn-warning">Update course</button>
+      <button *ngIf="!editable" (click)="addCourse()" class="btn btn-info">New course</button>
     </div>
 
   </div>
@@ -39,7 +40,7 @@
         (dblclick)="deleteCourse(course)"
          *ngFor="let course of courses" class="list-group-item d-flex justify-content-between align-items-start">
           <div class="ms-2 me-auto">
-            <div class="fw-bold">{{ course.title }}</div>
+            <div (click)="editCourse(course)" class="fw-bold">{{ course.title }}</div>
 
           </div>
           <span class="badge bg-primary rounded-pill">{{ course.price }}</span>
