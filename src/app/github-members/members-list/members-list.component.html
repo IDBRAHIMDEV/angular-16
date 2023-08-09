@@ -1,0 +1,24 @@
+
+<div class="row my-5">
+  <div class="col-md-6">
+    <h1>List of courses</h1>
+  </div>
+  <div class="col-md-6 text-end">
+    <button href="" class="btn btn-primary">Search</button>
+  </div>
+</div>
+
+<div class="row my-5">
+  <div class="col-md-4" *ngFor="let user of users">
+    <div class="card">
+      <img class="card-img-top" [src]="user.avatar_url" alt="Title">
+      <div class="card-body">
+        <h4 class="card-title">{{ user.login }}</h4>
+        <p class="card-text">
+          <a [href]="user.html_url" class="btn btn-sm btn-success">Read more...</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>

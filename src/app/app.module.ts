@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoursesModule } from './courses/courses.module';
+import { GithubMembersModule } from './github-members/github-members.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { CoursesModule } from './courses/courses.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoursesModule
+    CoursesModule,
+    GithubMembersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
