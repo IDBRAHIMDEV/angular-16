@@ -1,5 +1,5 @@
 import { Course } from './../course';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -9,15 +9,15 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./list-courses.component.css'],
 })
 export class ListCoursesComponent {
-  editable: boolean = false;
-  etatForm: boolean = false;
+  editable = signal<boolean>(false);
+  etatForm = signal<boolean>(false);
 
-  myCourse: Course = {
+  myCourse = signal<Course>({
     title: '',
     price: 0,
-  };
+  });
 
-  courses: Course[] = [
+  courses = signal<Course[]>([
     {
       id: '1',
       title: 'Learn React',
@@ -33,12 +33,12 @@ export class ListCoursesComponent {
       title: 'Learn Vue',
       price: 25,
     },
-  ];
+  ]);
 
   toggleForm() {
     this.initCourse();
-    this.editable = false;
-    this.etatForm = !this.etatForm;
+    this.editable.set(false);
+    this.etatForm.update((etat) => !etat);
   }
 
   deleteCourse(myCourse: Course) {
@@ -48,36 +48,38 @@ export class ListCoursesComponent {
     if (!confirm(`Are you sure to delete this course ${myCourse.title} ?`)) {
       return;
     }
-    this.courses = this.courses.filter((course) => course.id !== myCourse.id);
+    this.courses.update((courses) =>
+      courses.filter((course) => course.id !== myCourse.id)
+    );
   }
 
   addCourse() {
     const course = {
-      ...this.myCourse,
+      ...this.myCourse(),
       id: uuidv4(),
     };
 
-    this.courses = [course, ...this.courses];
+    this.courses.update((courses) => [course, ...courses]);
     console.log(this.courses);
     this.initCourse();
   }
 
   initCourse() {
-    this.myCourse = {
+    this.myCourse.set({
       title: '',
       price: 0,
-    };
+    });
   }
 
   editCourse(course: Course) {
-    this.etatForm = true;
-    this.editable = true;
-    this.myCourse = course;
+    this.etatForm.set(true);
+    this.editable.set(true);
+    this.myCourse.set(course);
   }
 
   updateCourse() {
-    this.etatForm = false;
-    this.editable = false;
+    this.etatForm.set(false);
+    this.editable.set(false);
     this.initCourse();
   }
 }

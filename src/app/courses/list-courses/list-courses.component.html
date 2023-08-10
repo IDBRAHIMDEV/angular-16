@@ -1,47 +1,69 @@
-
 <div class="row my-4">
   <div class="col-md-6">
     <h1>List of courses</h1>
+    <em>Signal version</em>
   </div>
   <div class="col-md-6 text-end">
     <button class="btn btn-success" (click)="toggleForm()">Add</button>
   </div>
 </div>
 
-<div class="row my-4" *ngIf="etatForm">
+<div class="row my-4" *ngIf="etatForm()">
   <div class="col-md-6 mx-auto">
-
     <div class="form-group my-3">
       <label for="title">Title</label>
-      <input [(ngModel)]="myCourse.title" type="text" class="form-control" id="title">
+      <input
+        [ngModel]="myCourse().title"
+        (ngModelChange)="myCourse().title = $event"
+        type="text"
+        class="form-control"
+        id="title"
+      />
     </div>
 
     <div class="form-group my-3">
       <label for="price">Price</label>
-      <input [(ngModel)]="myCourse.price" type="number" class="form-control" id="price">
+      <input
+        [ngModel]="myCourse().price"
+        (ngModelChange)="myCourse().price = $event"
+        type="number"
+        class="form-control"
+        id="price"
+      />
     </div>
 
     <div class="d-grid">
-      <button *ngIf="editable" (click)="updateCourse()" class="btn btn-warning">Update course</button>
-      <button *ngIf="!editable" (click)="addCourse()" class="btn btn-info">New course</button>
+      <button
+        *ngIf="editable()"
+        (click)="updateCourse()"
+        class="btn btn-warning"
+      >
+        Update course
+      </button>
+      <button *ngIf="!editable()" (click)="addCourse()" class="btn btn-info">
+        New course
+      </button>
     </div>
-
   </div>
 </div>
 
 <div class="row my-4">
   <div class="col-md-6 mx-auto">
-
-    <ng-container *ngIf="courses.length; then list else alert"></ng-container>
+    <ng-container
+      *ngIf="courses().length; then list; else alert"
+    ></ng-container>
 
     <ng-template #list>
       <ol class="list-group list-group-numbered">
         <li
-        (dblclick)="deleteCourse(course)"
-         *ngFor="let course of courses" class="list-group-item d-flex justify-content-between align-items-start">
+          (dblclick)="deleteCourse(course)"
+          *ngFor="let course of courses()"
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
           <div class="ms-2 me-auto">
-            <div (click)="editCourse(course)" class="fw-bold">{{ course.title }}</div>
-
+            <div (click)="editCourse(course)" class="fw-bold">
+              {{ course.title }}
+            </div>
           </div>
           <span class="badge bg-primary rounded-pill">{{ course.price }}</span>
         </li>
@@ -51,6 +73,5 @@
     <ng-template #alert>
       <div class="alert alert-danger">No courses yet !</div>
     </ng-template>
-
   </div>
 </div>
