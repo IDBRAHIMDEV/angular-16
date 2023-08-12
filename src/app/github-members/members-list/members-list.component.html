@@ -14,9 +14,10 @@
   </div>
 </div>
 
-<div class="row my-5">
+<div class="row my-5" *ngIf="users.length">
   <div class="col-md-4" *ngFor="let user of users">
     <app-card [login]="user.login" [image]="user.avatar_url" [url]="user.html_url"></app-card>
   </div>
-
 </div>
+
+<div *ngIf="!users.length" class="row my-5 loading">Loading...</div>
