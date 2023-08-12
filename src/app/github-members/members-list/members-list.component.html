@@ -4,21 +4,19 @@
     <h1>List of courses</h1>
   </div>
   <div class="col-md-6 text-end">
-    <button href="" class="btn btn-primary">Search</button>
+
+    <div class="input-group mb-3">
+      <input (keyup.enter)="searchUsers()" [(ngModel)]="search" type="text" class="form-control" placeholder="Search a user" aria-label="Recipient's username" aria-describedby="button-addon2">
+
+    </div>
+
+
   </div>
 </div>
 
 <div class="row my-5">
   <div class="col-md-4" *ngFor="let user of users">
-    <div class="card">
-      <img class="card-img-top" [src]="user.avatar_url" alt="Title">
-      <div class="card-body">
-        <h5 class="card-title">{{ user.login }}</h5>
-        <p class="card-text">
-          <a [href]="user.html_url" class="btn btn-sm btn-success">Read more...</a>
-        </p>
-      </div>
-    </div>
+    <app-card [login]="user.login" [image]="user.avatar_url" [url]="user.html_url"></app-card>
   </div>
 
 </div>

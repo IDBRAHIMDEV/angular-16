@@ -7,16 +7,14 @@ import { CoursesModule } from './courses/courses.module';
 import { GithubMembersModule } from './github-members/github-members.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoursesModule,
-    GithubMembersModule
+    GithubMembersModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

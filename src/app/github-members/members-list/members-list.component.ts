@@ -9,6 +9,7 @@ import { MembersService } from '../members.service';
 })
 export class MembersListComponent implements OnInit {
   users: User[] = [];
+  search: string = '';
 
   constructor(private membersService: MembersService) {}
 
@@ -18,5 +19,15 @@ export class MembersListComponent implements OnInit {
 
   retreiveAllMembers() {
     this.membersService.membersList().subscribe((res) => (this.users = res));
+  }
+
+  searchUsers() {
+    if (this.search) {
+      this.membersService
+        .serearchMembers(this.search)
+        .subscribe((res) => (this.users = res.items));
+    } else {
+      this.retreiveAllMembers();
+    }
   }
 }
