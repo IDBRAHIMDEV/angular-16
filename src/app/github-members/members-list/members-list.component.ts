@@ -18,14 +18,17 @@ export class MembersListComponent implements OnInit {
   }
 
   retreiveAllMembers() {
-    this.membersService.membersList().subscribe((res) => (this.users = res));
+    this.membersService.membersList().subscribe((res) => {
+      this.users = res;
+      console.log(res);
+    });
   }
 
   searchUsers() {
     if (this.search) {
       this.membersService
         .serearchMembers(this.search)
-        .subscribe((res) => (this.users = res.items));
+        .subscribe((res) => (this.users = res));
     } else {
       this.retreiveAllMembers();
     }
