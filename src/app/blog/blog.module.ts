@@ -4,18 +4,15 @@ import { ArticleListComponent } from './components/article-list/article-list.com
 import { ArticleCreateComponent } from './components/article-create/article-create.component';
 import { ArticleEditComponent } from './components/article-edit/article-edit.component';
 import { ArticleShowComponent } from './components/article-show/article-show.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     ArticleListComponent,
     ArticleCreateComponent,
     ArticleEditComponent,
-    ArticleShowComponent
+    ArticleShowComponent,
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule, HttpClientModule],
 })
-export class BlogModule { }
+export class BlogModule {}
