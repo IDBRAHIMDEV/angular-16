@@ -1,7 +1,36 @@
 {
   "articles": [],
   "comments": [],
-  "categories": [],
+  "categories": [
+    {
+      "label": "Books",
+      "id": 1
+    },
+    {
+      "label": "Coding",
+      "id": 2
+    },
+    {
+      "label": "Gaming",
+      "id": 3
+    },
+    {
+      "label": "Fashion",
+      "id": 4
+    },
+    {
+      "label": "Travel",
+      "id": 5
+    },
+    {
+      "label": "Finance",
+      "id": 6
+    },
+    {
+      "label": "Bitcoin",
+      "id": 7
+    }
+  ],
   "tags": [],
   "users": []
 }
