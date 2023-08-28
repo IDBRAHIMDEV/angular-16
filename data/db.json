@@ -7,10 +7,6 @@
       "id": 1
     },
     {
-      "label": "Coding",
-      "id": 2
-    },
-    {
       "label": "Gaming",
       "id": 3
     },
@@ -28,7 +24,11 @@
     },
     {
       "label": "Bitcoin",
-      "id": 7
+      "id": 9
+    },
+    {
+      "label": "Coding",
+      "id": 10
     }
   ],
   "tags": [],

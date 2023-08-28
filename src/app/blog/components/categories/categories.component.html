@@ -10,15 +10,15 @@
 <div class="row my-4">
   <div class="col-md-6 mx-auto">
 
-    <input #categoryLabel [value]="label()" (input)="label.set(categoryLabel.value)" (keyup.enter)=" add()" type="text" class="form-control my-3" placeholder="Add a category">
+    <input #categoryLabel [value]="label()" (input)="label.set(categoryLabel.value)" (keyup.enter)="createOrUpdate()" type="text" class="form-control my-3" placeholder="Add a category">
 
     <ul class="list-group">
       <li *ngFor="let category of categories()" class="list-group-item">
         <div class="row">
           <div class="col mt-2">{{ category.label }}</div>
           <div class="col text-end">
-            <button class="btn btn-sm btn-warning me-1">Edit</button>
-            <button class="btn btn-sm btn-danger">Delete</button>
+            <button class="btn btn-sm btn-warning me-1" (click)="edit(category)">Edit</button>
+            <button *ngIf="category.id" class="btn btn-sm btn-danger" (click)="delete(category.id)">Delete</button>
           </div>
         </div>
         </li>
