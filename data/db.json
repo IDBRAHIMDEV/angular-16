@@ -3,7 +3,7 @@
   "comments": [],
   "categories": [
     {
-      "label": "Books",
+      "label": "Book",
       "id": 1
     },
     {
@@ -17,10 +17,6 @@
     {
       "label": "Travel",
       "id": 5
-    },
-    {
-      "label": "Finance",
-      "id": 6
     },
     {
       "label": "Bitcoin",

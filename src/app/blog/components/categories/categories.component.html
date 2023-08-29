@@ -13,7 +13,21 @@
     <input #categoryLabel [value]="label()" (input)="label.set(categoryLabel.value)" (keyup.enter)="createOrUpdate()" type="text" class="form-control my-3" placeholder="Add a category">
 
     <ul class="list-group">
-      <li *ngFor="let category of categories()" class="list-group-item">
+      <li
+        *ngFor="let category of categories(); let i = index"
+        (click)="selected(i)"
+        [ngStyle]="{
+          color: index() == i ? 'cyan' : 'black',
+          fontStyle: index() == i ? 'italic' : 'normal',
+        }"
+        [ngClass]="{
+          'active': index() == i,
+          'list-group-item-warning': index() == i && mode() == 'edit',
+          'list-group-item-success': index() == i && mode() == 'update',
+          'list-group-item-danger': index() == i && mode() == 'delete',
+        }"
+        class="list-group-item"
+      >
         <div class="row">
           <div class="col mt-2">{{ category.label }}</div>
           <div class="col text-end">
