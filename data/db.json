@@ -3,28 +3,28 @@
   "comments": [],
   "categories": [
     {
-      "label": "Book",
+      "label": "Bitcoin",
       "id": 1
     },
     {
-      "label": "Gaming",
-      "id": 3
-    },
-    {
-      "label": "Fashion",
-      "id": 4
-    },
-    {
-      "label": "Travel",
-      "id": 5
-    },
-    {
-      "label": "Bitcoin",
-      "id": 9
+      "label": "Books",
+      "id": 2
     },
     {
       "label": "Coding",
-      "id": 10
+      "id": 3
+    },
+    {
+      "label": "Business",
+      "id": 4
+    },
+    {
+      "label": "AI",
+      "id": 5
+    },
+    {
+      "label": "Blockchain",
+      "id": 6
     }
   ],
   "tags": [],
