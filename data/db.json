@@ -27,6 +27,19 @@
       "id": 6
     }
   ],
-  "tags": [],
+  "tags": [
+    {
+      "label": "Development",
+      "id": 1
+    },
+    {
+      "label": "Blockchain",
+      "id": 3
+    },
+    {
+      "label": "Culture",
+      "id": 5
+    }
+  ],
   "users": []
 }

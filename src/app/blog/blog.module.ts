@@ -7,6 +7,7 @@ import { ArticleShowComponent } from './components/article-show/article-show.com
 import { HttpClientModule } from '@angular/common/http';
 import { TagsComponent } from './components/tags/tags.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
     TagsComponent,
     CategoriesComponent,
   ],
-  imports: [CommonModule, HttpClientModule],
-  exports: [CategoriesComponent, TagsComponent],
+  imports: [CommonModule, HttpClientModule, FormsModule],
+  exports: [CategoriesComponent, TagsComponent, ArticleCreateComponent],
 })
 export class BlogModule {}
